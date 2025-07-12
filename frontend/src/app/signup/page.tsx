@@ -112,7 +112,7 @@ export default function SignUpPage() {
 
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="name" className="block text-sm font-medium text-black mb-2">
                 Full Name
               </label>
               <input
@@ -123,7 +123,7 @@ export default function SignUpPage() {
                 value={formData.name}
                 onChange={handleChange}
                 disabled={loading || success}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed placeholder-black placeholder:text-sm text-black"
                 placeholder="Enter your full name"
               />
             </div>
@@ -140,7 +140,7 @@ export default function SignUpPage() {
                 value={formData.username}
                 onChange={handleChange}
                 disabled={loading || success}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed placeholder-black placeholder:text-sm text-black"
                 placeholder="Choose a username"
               />
             </div>
@@ -157,7 +157,7 @@ export default function SignUpPage() {
                 value={formData.email}
                 onChange={handleChange}
                 disabled={loading || success}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed placeholder-black placeholder:text-sm text-black"
                 placeholder="Enter your email"
               />
             </div>
@@ -175,7 +175,7 @@ export default function SignUpPage() {
                   value={formData.password}
                   onChange={handleChange}
                   disabled={loading || success}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors pr-12 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors pr-12 disabled:opacity-50 disabled:cursor-not-allowed placeholder-black placeholder:text-sm text-black"
                   placeholder="Create a password"
                 />
                 <button
@@ -201,7 +201,7 @@ export default function SignUpPage() {
                 value={formData.description}
                 onChange={handleChange}
                 disabled={loading || success}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors resize-none disabled:opacity-50 disabled:cursor-not-allowed placeholder-black placeholder:text-sm text-black"
                 placeholder="Tell us a bit about yourself and your style preferences..."
               />
             </div>
