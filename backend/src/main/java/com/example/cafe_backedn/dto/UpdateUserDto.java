@@ -16,24 +16,12 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDto {
+public class UpdateUserDto {
     private long id;
 
     @NotBlank(message = "name can not blank")
     @NotNull(message = "name can not null")
     private String name;
-
-    @NotBlank(message = "username can not blank")
-    @NotNull(message = "username can not null")
-    private String username;
-
-    @NotBlank(message = "email can not blank")
-    @NotNull(message = "email can not null")
-    private String email;
-
-    @NotNull(message = "password can not null")
-    @NotBlank(message = "password can not blank")
-    private String password;
 
     private String avatar;
     private String bio;
@@ -48,4 +36,4 @@ public class UserDto {
     private Integer totalPurchases;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-}
+} 

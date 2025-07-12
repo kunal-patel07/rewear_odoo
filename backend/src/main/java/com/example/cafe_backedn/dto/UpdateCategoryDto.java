@@ -12,10 +12,9 @@ import java.util.List;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-public class CategoryDto {
-
+@AllArgsConstructor
+public class UpdateCategoryDto {
     private Long id;
 
     @NotNull(message = "name can not be null")
@@ -34,7 +33,7 @@ public class CategoryDto {
 
     private String parentName; // For display purposes
 
-    private List<CategoryDto> children;
+    private List<UpdateCategoryDto> children;
 
     private Integer sortOrder;
 
@@ -43,4 +42,4 @@ public class CategoryDto {
     private LocalDateTime createdAt;
 
     private LocalDateTime updatedAt;
-}
+} 

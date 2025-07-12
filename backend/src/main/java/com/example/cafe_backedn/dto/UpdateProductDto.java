@@ -14,9 +14,9 @@ import java.util.List;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-public class ProductDto {
+@AllArgsConstructor
+public class UpdateProductDto {
     private Long id;
 
     @NotNull(message = "title can not be null")
@@ -43,11 +43,6 @@ public class ProductDto {
 
     private String categoryName; // For display purposes
 
-    @NotNull(message = "seller id can not be null")
-    private Long sellerId;
-
-    private String sellerName; // For display purposes
-
     private ProductEntity.Status status;
     private Integer views;
     private Integer likes;
@@ -60,4 +55,4 @@ public class ProductDto {
 
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-}
+} 

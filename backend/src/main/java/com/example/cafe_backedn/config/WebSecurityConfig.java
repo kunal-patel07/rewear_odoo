@@ -51,7 +51,7 @@ public class WebSecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("http://localhost:4200","https://stunning-maamoul-fbff00.netlify.app")); // ✅ Angular origin
+        configuration.setAllowedOrigins(List.of("http://localhost:3000/","http://localhost:3000")); // ✅ Angular origin
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true); // ✅ if using cookies/auth headers

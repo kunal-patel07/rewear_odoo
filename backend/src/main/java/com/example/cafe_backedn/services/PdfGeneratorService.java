@@ -75,14 +75,15 @@ public class PdfGeneratorService {
                 Long productId = Long.parseLong(productIdStr.trim());
                 ProductEntity product = productRepo.findById(productId)
                         .orElseThrow(() -> new ResourceNotFound("Product ID " + productId + " not found"));
-                CategoryEntity category = categoryRepo.findById(Long.valueOf(product.getCategory())).orElseThrow(() -> new ResourceNotFound("Category ID " + product.getCategory() + " not found"));
+                CategoryEntity category = categoryRepo.findById(product.getCategoryId()).orElseThrow(() -> new ResourceNotFound("Category ID " + product.getCategoryId() + " not found"));
 
                 int quantity = 1; // Or get from order if available
-                double price = product.getPrice(); // assuming price is double
+//                double price = product.getPrice(); // assuming price is double
+                double price =399; // assuming price is double
                 double total = quantity * price;
                 grandTotal += total;
 
-                table.addCell(product.getName());
+                table.addCell("");
                 table.addCell(String.valueOf(category.getName()));
                 table.addCell(String.valueOf(quantity));
                 table.addCell("Rs." + price);

@@ -2,6 +2,7 @@ package com.example.cafe_backedn.controller;
 
 import com.example.cafe_backedn.advices.PaginationResponse;
 import com.example.cafe_backedn.dto.LoginDto;
+import com.example.cafe_backedn.dto.UpdateUserDto;
 import com.example.cafe_backedn.dto.UserDto;
 import com.example.cafe_backedn.dto.UserPaginateDto;
 import com.example.cafe_backedn.services.AuthService;
@@ -18,7 +19,6 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-
 public class UserController {
 
     private final UserService userService;
@@ -28,6 +28,7 @@ public class UserController {
     public String getAll(){
         return "working ";
     }
+
     @GetMapping(path = "/get-all-user")
     public ResponseEntity<List<UserDto>> getUser(){
         List<UserDto> response=userService.getUserInfo();
@@ -41,6 +42,14 @@ public class UserController {
         System.out.println("the dto="+body);
         if(dto==null) return ResponseEntity.badRequest().build();
         System.out.println("output="+dto);
+        return ResponseEntity.ok(dto);
+    }
+
+    @PutMapping(path = "/update-user/{id}")
+    public ResponseEntity<UpdateUserDto> updateUser(@PathVariable Long id, @Valid @RequestBody() UpdateUserDto body){
+        body.setId(id);
+        UpdateUserDto dto = userService.updateUser(body);
+        if(dto == null) return ResponseEntity.badRequest().build();
         return ResponseEntity.ok(dto);
     }
 
