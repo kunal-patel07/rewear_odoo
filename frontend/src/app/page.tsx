@@ -95,23 +95,34 @@ export default function RewearLanding() {
     },
   ]
 
-  const categories = [
-    {
-      name: "Men's",
-      image: "https://images.unsplash.com/photo-1516257984-b1b4d707412e?w=400&h=300&fit=crop",
-      count: "2,450+ items",
-    },
-    {
-      name: "Women's",
-      image: "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=300&fit=crop",
-      count: "3,200+ items",
-    },
-    {
-      name: "Kids",
-      image: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=400&h=300&fit=crop",
-      count: "1,800+ items",
-    },
-  ]
+  const [categories, setCategories] = useState<Array<{
+    name: string;
+    image: string;
+    count: string;
+  }>>([]);
+
+  useEffect(() => {
+    fetch('http://192.168.1.4:9186/api/category/all', {
+      headers: {
+        'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJrYXJhbkBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTc1MjMxODc5OCwiZXhwIjoxNzUyOTE4Nzk4fQ.gccVqWaXXtuP3LSzPsI_8xRCT6TD3XN8LZmtbhIN5Ry59Tfq1CNA-ysRHMSeitXcgVNQSDtDOqvQvzeGRePqrg'
+      }
+    })
+      .then(res => res.json())
+      .then(data => {
+        // The API response is { timestamp, data: [...] }
+        const categoriesArr = Array.isArray(data?.data) ? data.data : [];
+        setCategories(
+          categoriesArr.map((cat: any) => ({
+            name: cat.name || '',
+            image: cat.image ? cat.image : '/placeholder.svg',
+            count: 'Available',
+            description: cat.description || '',
+            slug: cat.slug || '',
+          }))
+        );
+      })
+      .catch(() => setCategories([]));
+  }, []);
 
   const featuredProducts = [
     {
@@ -399,15 +410,16 @@ export default function RewearLanding() {
                 onClick={() => handleCategoryClick(category.name)}
                 className="bg-white rounded-xl shadow-lg overflow-hidden category-hover"
               >
-                <div className="relative h-80 overflow-hidden">
+                <div className="relative h-[28rem] overflow-hidden">
                   <Image
                     src={category.image || "/placeholder.svg"}
                     alt={category.name}
                     fill
                     className="object-cover transition-transform duration-500 hover:scale-110"
+                    style={{ height: '100%', width: '100%', objectFit: 'cover' }}
                   />
                   <div className="category-overlay absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent transition-all duration-300"></div>
-                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                  <div className="absolute bottom-0 left-0  right-0 p-6 text-white">
                     <h3 className="text-2xl font-bold mb-1">{category.name}</h3>
                     <p className="text-white/80 text-sm">{category.count}</p>
                   </div>

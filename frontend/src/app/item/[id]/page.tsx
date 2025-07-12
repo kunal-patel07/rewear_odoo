@@ -231,7 +231,7 @@ export default function ItemDetailPage({ params }: { params: { id: string } }) {
                   <div className="flex-1">
                     <div className="flex items-center gap-2">
                       <h4 className="font-semibold text-gray-900">{item.seller.name}</h4>
-                      {item.seller.verified && <Shield className="w-4 h-4 text-green-600" title="Verified Seller" />}
+                      {item.seller.verified && <Shield className="w-4 h-4 text-green-600"  />}
                     </div>
                     <p className="text-gray-600">@{item.seller.username}</p>
                     <div className="flex items-center gap-4 mt-1">
